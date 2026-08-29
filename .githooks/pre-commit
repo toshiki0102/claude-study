@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# セキュリティ/個人情報チェック（毎コミット前に自動実行）。
+# 有効化: git config core.hooksPath .githooks
+# 緊急回避（非推奨）: git commit --no-verify
+set -euo pipefail
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec "$DIR/checks/secret-pii-scan.sh"

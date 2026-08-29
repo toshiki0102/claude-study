@@ -1,0 +1,8 @@
+# pre-commit スキャンで無視する正規表現（追加行に grep -vE で適用）。1行1パターン。
+# # で始まる行と空行は無視。誤検知が出たらここに安全なパターンを足す。
+
+# Claude の Co-Authored-By など既知の安全なメール
+noreply@anthropic\.com
+
+# example.* ドメインのサンプルメール
+@example\.(com|org|net)
