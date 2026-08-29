@@ -38,3 +38,4 @@
 | # | 決定 | 状態 | 決定日 |
 |---|---|---|---|
 | [0001](./0001-port-dev-harness-from-awsdeploy.md) | 開発ハーネス（GitHub Flow・Issues・ADR・フック）を awsdeploy から引き継ぐ | 有効 | 2026-08-29 |
+| [0002](./0002-constitution-four-principles.md) | 学習ノートサイトの憲法を「4原則」で定める | 有効 | 2026-08-29 |

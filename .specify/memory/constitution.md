@@ -1,50 +1,97 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: テンプレート未定義 → 1.0.0（初回制定）
+- Modified principles:
+    [PRINCIPLE_1_NAME] → I. 推測を断定で書かない（交渉不可）
+    [PRINCIPLE_2_NAME] → II. 図が主役・1ページ1概念
+    [PRINCIPLE_3_NAME] → III. ページの完了条件は「クイズ3問」
+    [PRINCIPLE_4_NAME] → IV. コードにはテストを書く
+- Added sections: 技術と公開の制約 / 進め方（所有者へのリンク）
+- Removed sections: [PRINCIPLE_5_NAME]（原則は4本と決めたため枠ごと削除）
+- Templates requiring updates:
+    ✅ .specify/templates/plan-template.md — 「Constitution Check」は
+       「[Gates determined based on constitution file]」で、plan 実行時にこの憲法から
+       ゲートを導出する作り。原則を足しても記述変更は不要。
+    ✅ .specify/templates/spec-template.md — 憲法への参照なし。変更不要。
+    ✅ .specify/templates/tasks-template.md — 憲法への参照なし。変更不要。
+    ✅ CLAUDE.md — 既に本ファイルを「原則・規約の所有者」として参照済み。変更不要。
+- Follow-up TODOs: なし
+-->
+
+# claude-study 憲法（Constitution）
+
+**このサイトが何であるか**: Claude Code とエージェントの仕組みを学ぶための、自分用の学習
+ノートサイト。読者は自分ひとり。ただし**数か月後に読み返して分かること**を条件とする。
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. 推測を断定で書かない（交渉不可）
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+- 検証していないことを断定形で書いては**ならない**。書くなら「未確認」と明示する。
+- 各ページに**いつ時点の情報か**を書く（`最終確認: YYYY-MM-DD`）。
+- 挙動・仕様・オプション名など変化しうる記述には、**公式ドキュメントの URL を添える**。
+- **Claude 自身の記憶を出典にしてはならない。** 裏取りは公式ドキュメントか実際の実行結果で行う。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+理由: Claude Code は更新が速く、モデルの知識には時点の壁がある。断定は数か月で嘘に変わるが、
+嘘になったことは自動的には分からない。「いつの話か」が書いてあれば、古びたことに気づける。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. 図が主役・1ページ1概念
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+- **1ページ = 1概念。** 別の概念に踏み込みたくなったら、書かずにリンクする。
+- 本文が**スクロール3画面**を超えたら、ページを分割しなければ**ならない**。
+- 説明の中心は **Mermaid 図**。文章は図の補足として書く。図の無い解説ページは書かない。
+- 各ページの冒頭に**要点カード3行**を置く。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+理由: 長い文章を読み通せない前提で作っている。読み返せないノートは、書いていないのと同じ。
+図が先にあれば、全体の形を数秒で思い出せる。
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. ページの完了条件は「クイズ3問」
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- 各ページ末に**4択クイズを3問**置く。**3問作れないページは未完成**とみなし、公開しない。
+- 各問は、**そのページの本文だけで答えられ**なければならない。外部知識を要求しない。
+- 成績はブラウザに保存し、**間違えた問題を再出題**する。
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+理由: 「読んで分かった気になる」ことを防ぐための検出器。問題を3つ作れないなら、それは
+理解に穴があるか、ページが概念を1つに絞れていないかのどちらかで、どちらも直すべき欠陥。
+
+### IV. コードにはテストを書く
+
+- クイズの採点・成績の保存と再出題など、**ロジックにはテストを書かなければならない**。
+- **失敗するテストを先に書く**（Red → Green）。実装後に辻褄合わせのテストを足さない。
+- **テストが緑でないものはマージしない。**
+
+理由: 自分用のサイトでも、採点や成績保存が黙って壊れれば学習そのものが止まる。手で毎回
+確かめる気力は続かない。
+
+## 技術と公開の制約
+
+- **VitePress** で書き、**GitHub Pages** で公開する。
+- 図は **Mermaid**。画像化した図は差分が読めなくなるため、原則として使わない。
+- 成績は**ブラウザ内にのみ**保存する（サーバー・アカウント・外部送信を持ち込まない）。
+- **日本語で書く。** 用語は初出時に英語を併記する。
+
+## 進め方（詳細は所有者ファイルが正）
+
+この憲法は**何を守るか**だけを定める。**どう進めるか**の手順は各所有者ファイルに従う。
+
+- ブランチ運用・PR・セットアップ → [`CONTRIBUTING.md`](../../CONTRIBUTING.md)
+- やること（書くページ・機能・バグ） → **GitHub Issues**
+- 個別判断の背景・理由・却下した代替案 → [`docs/adr/`](../../docs/adr/README.md)
+- 日々の作業指針とファイル責務表 → [`CLAUDE.md`](../../CLAUDE.md)
+
+**選択肢を比べて1つを選んだときは ADR を書く。** とくに `.specify/` と `.claude/skills/` を
+変更するときは必須（上流から再生成されるため、理由が無いと黙って戻る）。
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- **この憲法は他のすべての慣行に優先する。** 他ファイルの記述と矛盾したら、この憲法が勝つ。
+- **改正は PR で行い、理由を ADR に残す。** 本ファイルは `.specify/` 配下にあるため、
+  `.githooks/pre-push` が ADR の同伴を機械的に検査する。
+- **バージョニング**（セマンティックバージョニング）:
+  - **MAJOR**: 原則の削除、または後方互換でない再定義。
+  - **MINOR**: 原則・節の追加、または指針の実質的な拡張。
+  - **PATCH**: 表現の明確化・誤字修正など、意味を変えない修正。
+- **適合確認**: 各 PR は原則 I〜IV に適合していることを確認する。逸脱する必要があるときは、
+  逸脱したまま黙って進めず、`plan.md` の Complexity Tracking に理由を書くか ADR を起こす。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-08-29 | **Last Amended**: 2026-08-29
