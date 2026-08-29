@@ -16,6 +16,10 @@ set -uo pipefail
 
 # 上流から再生成・更新される領域。
 UPSTREAM_RE='^(\.specify/|\.claude/skills/)'
+# ただし constitution.md は「プロジェクト側が埋めること」を前提に置かれたテンプレートで、
+# 埋めるのは上流に逆らう行為ではない。ここで ADR を要求すると、誤字修正のたびに
+# --no-verify が常用され、本当に止めたい変更まで素通りするようになる。
+EXCLUDE_RE='^\.specify/memory/constitution\.md$'
 # ADR 本体のファイル名。docs/adr/README.md（一覧表）や template.md（雛形）は
 # ADR ではないので、これらが増えただけでは「ADR を書いた」とみなさない。
 ADR_RE='^docs/adr/[0-9]{4}-.+\.md$'
@@ -33,7 +37,7 @@ else
   added="$(git diff --name-only --diff-filter=A "$base"...HEAD 2>/dev/null)" || exit 0
 fi
 
-hits="$(printf '%s\n' "$changed" | grep -E "$UPSTREAM_RE" || true)"
+hits="$(printf '%s\n' "$changed" | grep -E "$UPSTREAM_RE" | grep -vE "$EXCLUDE_RE" || true)"
 [ -n "$hits" ] || exit 0
 
 adrs="$(printf '%s\n' "$added" | grep -E "$ADR_RE" || true)"

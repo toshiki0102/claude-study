@@ -52,7 +52,27 @@ expect_exit 1 "docs/adr/template.md だけ増えても ADR とはみなさない
   '.specify/templates/tasks-template.md' \
   'docs/adr/template.md'
 
+# constitution.md は除外するが、それは「このファイル1つ」の話。同じコミットで
+# .specify/ の他のファイルも触っているなら、従来どおり ADR が要る。
+expect_exit 1 "constitution.md と一緒に他の .specify/ も変更 → 止める" \
+  '.specify/memory/constitution.md
+.specify/templates/plan-template.md' \
+  ''
+
+# 名前に constitution を含むだけの上流ファイルまで通してはいけない。
+# constitution-template.md は上流の雛形そのもので、変更すれば再生成で戻る。
+expect_exit 1 "constitution-template.md は除外対象ではない → 止める" \
+  '.specify/templates/constitution-template.md' \
+  ''
+
 # --- 通すべきケース -----------------------------------------------------------
+
+# constitution.md は「プロジェクト側が埋めること」を前提に置かれたテンプレートで、
+# 埋めるのは上流に逆らう行為ではない。ここで ADR を要求すると、誤字修正のたびに
+# --no-verify が常用され、本当に止めたい変更まで素通りするようになる（Issue #5）。
+expect_exit 0 "constitution.md だけの変更は ADR 不要 → 通す" \
+  '.specify/memory/constitution.md' \
+  ''
 
 expect_exit 0 "上流由来ファイルを変更し ADR も追加した → 通す" \
   '.specify/templates/tasks-template.md
