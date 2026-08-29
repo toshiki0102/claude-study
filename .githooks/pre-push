@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# push 前のチェック2つ:
+#   1. main への直接 push を禁止する（GitHub Flow: 変更は feature ブランチ → PR 経由）。
+#   2. 上流由来ファイルの変更に ADR が伴っているか（checks/upstream-override-adr.sh）。
+# 有効化: git config core.hooksPath .githooks（クローン毎に1回）
+# 緊急回避（非推奨）: git push --no-verify
+#
+# 注意: これは手元のクローンを守るクライアント側のガードレール。サーバー側の
+# 完全な強制（誰の push も弾く）はブランチ保護/Ruleset が必要で、Private リポジトリ
+# では GitHub Pro へのアップグレードか public 化が要る。詳細は CONTRIBUTING.md。
+set -euo pipefail
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+protected="main"
+
+# pre-push は stdin で「<local_ref> <local_sha> <remote_ref> <remote_sha>」を受け取る。
+while read -r _local_ref _local_sha remote_ref _remote_sha; do
+  if [ "$remote_ref" = "refs/heads/$protected" ]; then
+    printf '\033[31m✋ %s への直接 push は禁止です（GitHub Flow）。\033[0m\n' "$protected" >&2
+    echo "   変更は feature ブランチを push して PR を作ってください:" >&2
+    echo "     git switch -c feat/xxx && git push -u origin feat/xxx" >&2
+    echo "   ※ $protected はマージ済み PR を取り込む場合のみ更新（git pull）します。" >&2
+    echo "   どうしても必要な場合（非推奨）: git push --no-verify" >&2
+    exit 1
+  fi
+done
+
+# 上流由来ファイル（.specify/ · .claude/skills/）に逆らう変更は ADR が要る。
+# 判定本体は checks/ に置く（pre-commit と同じ構成）。stdin は上のループで
+# 読み切っているが、このチェックは stdin を使わないので影響しない。
+exec "$DIR/checks/upstream-override-adr.sh"

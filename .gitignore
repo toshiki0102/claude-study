@@ -1,0 +1,10 @@
+# 依存
+node_modules/
+
+# VitePress のビルド成果物とキャッシュ
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
+# OS / エディタ
+.DS_Store
+*.log
