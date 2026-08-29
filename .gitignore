@@ -8,3 +8,8 @@ docs/.vitepress/cache/
 # OS / エディタ
 .DS_Store
 *.log
+
+# Spec Kit が「いまどのフィーチャを見ているか」を記録する局所状態。
+# プロジェクトの事実ではなくセッションの状態なので追跡しない
+# （追跡すると .specify/ 配下のため ADR 検査にも毎回引っかかる）。
+.specify/feature.json
