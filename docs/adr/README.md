@@ -33,9 +33,14 @@
 検知して push を止める（`checks/upstream-override-adr.sh`）。上流の更新をそのまま受け入れる
 など ADR が不要な変更では `git push --no-verify` で通す。
 
+**例外: `.specify/memory/constitution.md`。** このファイルはプロジェクト側が埋める前提の
+テンプレートなので、検査対象から外してある（[ADR-0003](./0003-exclude-constitution-from-adr-check.md)）。
+ただし**憲法の改正時に ADR を書く規律は変わらない** — 機械が止めなくなっただけで、自分で守る。
+
 ## 一覧
 
 | # | 決定 | 状態 | 決定日 |
 |---|---|---|---|
 | [0001](./0001-port-dev-harness-from-awsdeploy.md) | 開発ハーネス（GitHub Flow・Issues・ADR・フック）を awsdeploy から引き継ぐ | 有効 | 2026-08-29 |
 | [0002](./0002-constitution-four-principles.md) | 学習ノートサイトの憲法を「4原則」で定める | 有効 | 2026-08-29 |
+| [0003](./0003-exclude-constitution-from-adr-check.md) | ADR 検査から `constitution.md` を除外する | 有効 | 2026-08-29 |

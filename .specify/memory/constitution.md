@@ -1,6 +1,9 @@
 <!--
 Sync Impact Report
-- Version change: テンプレート未定義 → 1.0.0（初回制定）
+- Version change: 1.0.0 → 1.0.1（PATCH: 事実の訂正のみ。原則は変更なし）
+    Governance の「pre-push が ADR の同伴を機械的に検査する」が、ADR-0003 による
+    除外で事実に反する記述になったため訂正した。原則 I（推測を断定で書かない）に従う。
+- 初回制定: テンプレート未定義 → 1.0.0（2026-08-29 / ADR-0002）
 - Modified principles:
     [PRINCIPLE_1_NAME] → I. 推測を断定で書かない（交渉不可）
     [PRINCIPLE_2_NAME] → II. 図が主役・1ページ1概念
@@ -85,8 +88,9 @@ Sync Impact Report
 ## Governance
 
 - **この憲法は他のすべての慣行に優先する。** 他ファイルの記述と矛盾したら、この憲法が勝つ。
-- **改正は PR で行い、理由を ADR に残す。** 本ファイルは `.specify/` 配下にあるため、
-  `.githooks/pre-push` が ADR の同伴を機械的に検査する。
+- **改正は PR で行い、理由を ADR に残す。** ただし本ファイルは `.githooks/pre-push` の
+  ADR 検査から**除外されている**（[ADR-0003](../../docs/adr/0003-exclude-constitution-from-adr-check.md)）。
+  機械的な強制は無いので、**自分で守る**。
 - **バージョニング**（セマンティックバージョニング）:
   - **MAJOR**: 原則の削除、または後方互換でない再定義。
   - **MINOR**: 原則・節の追加、または指針の実質的な拡張。
@@ -94,4 +98,4 @@ Sync Impact Report
 - **適合確認**: 各 PR は原則 I〜IV に適合していることを確認する。逸脱する必要があるときは、
   逸脱したまま黙って進めず、`plan.md` の Complexity Tracking に理由を書くか ADR を起こす。
 
-**Version**: 1.0.0 | **Ratified**: 2026-08-29 | **Last Amended**: 2026-08-29
+**Version**: 1.0.1 | **Ratified**: 2026-08-29 | **Last Amended**: 2026-08-29
