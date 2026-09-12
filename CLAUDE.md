@@ -17,6 +17,13 @@ VitePress で書き、GitHub Pages で公開する。2本柱 —「使い方」�
 **正確さの規律**: Claude Code は更新が速く、AI の知識も古くなる。**推測を断定で書かない。**
 各ページに「いつ時点の情報か」を書き、怪しい箇所は公式ドキュメントで裏取りする。
 
+<!-- SPECKIT START -->
+**進行中の機能**: `001-learning-site-first-page`（学習ノートサイト — 1本目のページを公開まで通す）
+
+- 仕様: [`specs/001-learning-site-first-page/spec.md`](./specs/001-learning-site-first-page/spec.md)
+- 実装計画: [`specs/001-learning-site-first-page/plan.md`](./specs/001-learning-site-first-page/plan.md)
+<!-- SPECKIT END -->
+
 ## ドキュメント責務（SSOT — どこが「正」か）
 
 事実は **1ファイルにだけ** 書き、他はリンクする。**変更時は所有者ファイルだけを直す。**
