@@ -107,11 +107,11 @@
 **Purpose**: 未完成のページが公開されないようにする。**ここが無いと SC-002 と SC-009 が「気をつける」に戻る。**
 契約は [contracts/page-check.md](./contracts/page-check.md)。背景は [ADR-0005](../../docs/adr/0005-page-completion-check.md)。
 
-- [ ] T031 [P] `tests/check/page.test.ts` に**失敗するテスト**を書く。[contracts/page-frontmatter.md](./contracts/page-frontmatter.md) の規則**それぞれに、落ちる例と通る例の両方**（`title` 欠落／`quizId` の形式違反／`lastVerified` の形式違反／クイズが2問／`choices` が3件／`answer` が 4／`q` が空／本文に外部リンクが無い／`quizExempt: true` は検査しない）
-- [ ] T032 `src/check/page.ts` に `checkPage()` を実装して T031 を緑にする。**純関数**（ファイル読み込みは呼び出し側）。違反は `{path, rule, message}` の配列で返し、**1件目で止めない**
-- [ ] T033 `src/check/page.ts` に `checkSite()` を実装する（横断の規則: `quiz-id-duplicate` / `question-id-collision` / `orphan-link` = 目次からリンクされているのに完了条件を満たさないページ）。対応する失敗するテストを `tests/check/page.test.ts` に**先に**足す
-- [ ] T034 `tests/pages.test.ts` を作る。`docs/**/*.md` を実際に走査し、frontmatter をパースして `checkPage` / `checkSite` にかける。**違反を全部集めてから、どのファイルの何が足りないかを日本語で出して落ちる**
-- [ ] T035 S-2 を確認する。`docs/guide/agent-loop.md` の `quiz` をわざと2問に減らし、`npm test` が**赤**になり、`quiz-count  クイズが 2 問しかありません（3問必要）` のように出ることを確認してから元に戻す
+- [x] T031 [P] `tests/check/page.test.ts` に**失敗するテスト**を書く。[contracts/page-frontmatter.md](./contracts/page-frontmatter.md) の規則**それぞれに、落ちる例と通る例の両方**（`title` 欠落／`quizId` の形式違反／`lastVerified` の形式違反／クイズが2問／`choices` が3件／`answer` が 4／`q` が空／本文に外部リンクが無い／`quizExempt: true` は検査しない）
+- [x] T032 `src/check/page.ts` に `checkPage()` を実装して T031 を緑にする。**純関数**（ファイル読み込みは呼び出し側）。違反は `{path, rule, message}` の配列で返し、**1件目で止めない**
+- [x] T033 `src/check/page.ts` に `checkSite()` を実装する（横断の規則: `quiz-id-duplicate` / `question-id-collision` / `orphan-link` = 目次からリンクされているのに完了条件を満たさないページ）。対応する失敗するテストを `tests/check/page.test.ts` に**先に**足す
+- [x] T034 `tests/pages.test.ts` を作る。`docs/**/*.md` を実際に走査し、frontmatter をパースして `checkPage` / `checkSite` にかける。**違反を全部集めてから、どのファイルの何が足りないかを日本語で出して落ちる**
+- [x] T035 S-2 を確認する。`docs/guide/agent-loop.md` の `quiz` をわざと2問に減らし、`npm test` が**赤**になり、`quiz-count  クイズが 2 問しかありません（3問必要）` のように出ることを確認してから元に戻す
 
 **チェックポイント**: 未完成のページを公開しようとすると CI が止める
 
@@ -119,12 +119,15 @@
 
 ## Phase 7: Polish（仕上げ・横断）
 
-- [ ] T036 [P] [research.md](./research.md) の U-1 / U-2 を最終確認する。**解決したものは事実として書き直し、残ったものは「未確認」と明示したまま残す**（憲法 I。分からないことを分かったことにしない）
-- [ ] T037 [P] `CLAUDE.md` の「## Commands」節が実際に動くコマンドと一致しているか確かめる（書いた時点から変わっていないか）
-- [ ] T038 [P] Issue #8 本文の「FR-021（設問の識別）」を **FR-019** に直す（spec.md では FR-021 は目次の要件）
-- [ ] T039 `docs/guide/agent-loop.md` の**本文がスクロール3画面に収まっているか目で確認する**（憲法 II / FR-004）。機械検査しないと決めた分、ここは人が担保する（[ADR-0005](../../docs/adr/0005-page-completion-check.md)）。超えていればページを分割する
-- [ ] T040 `docs/guide/agent-loop.md` の**3問がそのページの本文だけで答えられるか**を確認する（FR-009 / 憲法 III）。外部知識が要る設問は作り直す。機械検査しないと決めた分、ここも人が担保する
-- [ ] T041 [quickstart.md](./quickstart.md) の **S-1 から S-8 を通しで実行**し、全部確認できたことをもって完了とする。1つでも未確認なら「たぶん動く」であって「動いた」ではない
+- [x] T036 [P] [research.md](./research.md) の U-1 / U-2 を最終確認する。**解決したものは事実として書き直し、残ったものは「未確認」と明示したまま残す**（憲法 I。分からないことを分かったことにしない）
+- [x] T037 [P] `CLAUDE.md` の「## Commands」節が実際に動くコマンドと一致しているか確かめる（書いた時点から変わっていないか）
+- [x] T038 [P] Issue #8 本文の「FR-021（設問の識別）」を **FR-019** に直す（spec.md では FR-021 は目次の要件）
+- [x] T039 `docs/guide/agent-loop.md` の**本文がスクロール3画面に収まっているか目で確認する**（憲法 II / FR-004）。機械検査しないと決めた分、ここは人が担保する（[ADR-0005](../../docs/adr/0005-page-completion-check.md)）。超えていればページを分割する
+- [x] T040 `docs/guide/agent-loop.md` の**3問がそのページの本文だけで答えられるか**を確認する（FR-009 / 憲法 III）。外部知識が要る設問は作り直す。機械検査しないと決めた分、ここも人が担保する
+- [x] T041 [quickstart.md](./quickstart.md) の **S-1 から S-8 を通しで実行**し、全部確認できたことをもって完了とする。1つでも未確認なら「たぶん動く」であって「動いた」ではない
+  （実施記録 2026-09-12: S-1〜S-5・S-7 は実測で確認。S-6 は null／例外を投げるストアの
+  ユニットテストで担保し、プライベートウィンドウでの手動確認のみ任意で残す。
+  S-8 は #10〜#12 の各マージで3回実測、本 PR のマージ後にも確認する）
 
 ---
 
