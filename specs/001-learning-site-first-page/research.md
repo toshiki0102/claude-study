@@ -84,12 +84,10 @@ export default {
 
 ## 未確認（断定しない）
 
-- **U-1: Vitest 5 と VitePress 1.6.4 の同居。** Vitest 5.0.0 の peer は `vite: ^6 || ^7 || ^8`、
-  VitePress 1.6.4 は `vite@^5` を**依存として内包**する。node_modules に vite が2系統入る形になるが、
-  実際に破綻しないかは**インストールして確かめるまで未確認**。テスト対象は素の TS モジュールで
-  VitePress を読み込まないため影響は無いと見込むが、これは見込みであって確認済みの事実ではない。
-  → 実装の最初のタスクで確かめる。駄目なら Vitest 4 系（peer `vite: ^6 || ^7 || ^8`）ではなく
-  vite を devDependency として明示的に揃える方向で対処する。
+- ~~U-1: Vitest 5 と VitePress 1.6.4 の同居~~ → **解消（2026-09-12 に実測、T001）。**
+  実際にインストールしたところ、vite は2系統で同居した（トップレベルに 8.3.0（vitest 5.0.0 用）、
+  `vitepress/node_modules/` に 5.4.21（vitepress 内包））。この状態で `npm test`（vitest run）と
+  `npm run docs:build`（vitepress build）が**どちらも exit 0**。対処は不要だった。
 - **U-2: 1本目の題材「エージェントループ」の内部挙動。** 公式情報が薄い領域。spec の Assumptions
   どおり、**確認できない部分は書かない**。薄いページになるのは仕様どおりの結果。
 

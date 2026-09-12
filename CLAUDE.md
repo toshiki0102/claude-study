@@ -39,7 +39,12 @@ VitePress で書き、GitHub Pages で公開する。2本柱 —「使い方」�
 
 ## Commands
 
-<!-- VitePress 導入後に埋める -->
+```bash
+npm run docs:dev       # 開発サーバー（http://localhost:5173/claude-study/）
+npm run docs:build     # サイトをビルド（docs/.vitepress/dist/ へ）
+npm run docs:preview   # ビルド結果をローカルで確認
+npm test               # テストと完了条件の検査（唯一の検査コマンド / ADR-0005）
+```
 
 ## タスク管理（やることの置き場）
 
