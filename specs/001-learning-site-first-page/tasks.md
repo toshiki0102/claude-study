@@ -60,7 +60,7 @@
 - [x] T013 [US1] `docs/index.md` と `config.ts` のサイドバーから `guide/agent-loop` にリンクする。**「仕組み」は枠だけでリンク先を作らない**（FR-021）
 - [x] T014 [US1] `.github/workflows/deploy.yml` を作る。`npm ci` → **`npm test`** → `npm run docs:build` → `actions/configure-pages` → `actions/upload-pages-artifact`（`docs/.vitepress/dist`）→ `actions/deploy-pages`。**テストが赤なら公開しない**（SC-009）
 - [x] T015 [US1] **【手作業】** GitHub のリポジトリ設定で Pages を有効化する（Settings → Pages → Source を「**GitHub Actions**」に）。2026-09-12 時点で**未設定**（`gh api repos/:owner/:repo/pages` が 404）。**この1手だけはコマンドで終わらない** →（実施記録 2026-09-12: `gh api -X POST repos/:owner/:repo/pages -f build_type=workflow` で有効化できた。手作業は不要だった）
-- [ ] T016 [US1] S-3 と S-8 を確認する。`https://toshiki0102.github.io/claude-study/` でページが読め、main への取り込みから公開まで手作業が無いこと
+- [x] T016 [US1] S-3 と S-8 を確認する。`https://toshiki0102.github.io/claude-study/` でページが読め、main への取り込みから公開まで手作業が無いこと
 
 **チェックポイント**: **ここで MVP が成立する。** 公開されたページが1本読める
 
@@ -72,13 +72,13 @@
 
 **Independent Test**: [quickstart.md](./quickstart.md) の **S-4**。保存が無くても確認できる。
 
-- [ ] T017 [P] [US2] `tests/quiz/id.test.ts` に**失敗するテスト**を書く（[contracts/quiz-modules.md](./contracts/quiz-modules.md) のテスト要件）: 同じ問題文→同じ値／前後と連続の空白違い→同じ値／1文字違い→別の値／**選択肢や正解を変えても同じ値**
-- [ ] T018 [P] [US2] `tests/quiz/grade.test.ts` に**失敗するテスト**を書く: `isCorrect` の正誤／`score` が3問中2問正解で `{correct:2,total:3}`／`unanswered` が未回答だけ返す
-- [ ] T019 [US2] `src/quiz/id.ts` に `questionId()` を実装して T017 を緑にする（NFC → trim → 連続空白を1つに → FNV-1a 32bit → 8桁16進。**同期関数**。`crypto.subtle` は使わない）
-- [ ] T020 [US2] `src/quiz/grade.ts` に `isCorrect` / `score` / `unanswered` を実装して T018 を緑にする
-- [ ] T021 [US2] `docs/.vitepress/theme/Quiz.vue` を作る（**表示と入力だけ**の薄い層）。`useData()` で frontmatter の `quiz` を読む／選ぶと正誤を表示（FR-010）／**選び直せない**（FR-011）／誤答なら正解を示す（FR-012）／3問終わったら「3問中 n 問正解」（FR-013）／未回答のまま採点しようとしたらどれが未回答か示す
-- [ ] T022 [US2] `docs/.vitepress/theme/index.ts` で `DefaultTheme` を拡張し、**`doc-after` スロットに `Quiz` を差し込む**（[research.md](./research.md) F-4）。`quizExempt: true` のページでは描画しない。**各ページに手で書かせない**（書き忘れが構造的に起きないようにするため）
-- [ ] T023 [US2] `npm run docs:dev` で `docs/guide/agent-loop.md` を開き、S-4（回答→正誤→正解→「n問正解」／選び直せない）を確認する
+- [x] T017 [P] [US2] `tests/quiz/id.test.ts` に**失敗するテスト**を書く（[contracts/quiz-modules.md](./contracts/quiz-modules.md) のテスト要件）: 同じ問題文→同じ値／前後と連続の空白違い→同じ値／1文字違い→別の値／**選択肢や正解を変えても同じ値**
+- [x] T018 [P] [US2] `tests/quiz/grade.test.ts` に**失敗するテスト**を書く: `isCorrect` の正誤／`score` が3問中2問正解で `{correct:2,total:3}`／`unanswered` が未回答だけ返す
+- [x] T019 [US2] `src/quiz/id.ts` に `questionId()` を実装して T017 を緑にする（NFC → trim → 連続空白を1つに → FNV-1a 32bit → 8桁16進。**同期関数**。`crypto.subtle` は使わない）
+- [x] T020 [US2] `src/quiz/grade.ts` に `isCorrect` / `score` / `unanswered` を実装して T018 を緑にする
+- [x] T021 [US2] `docs/.vitepress/theme/Quiz.vue` を作る（**表示と入力だけ**の薄い層）。`useData()` で frontmatter の `quiz` を読む／選ぶと正誤を表示（FR-010）／**選び直せない**（FR-011）／誤答なら正解を示す（FR-012）／3問終わったら「3問中 n 問正解」（FR-013）／未回答のまま採点しようとしたらどれが未回答か示す
+- [x] T022 [US2] `docs/.vitepress/theme/index.ts` で `DefaultTheme` を拡張し、**`doc-after` スロットに `Quiz` を差し込む**（[research.md](./research.md) F-4）。`quizExempt: true` のページでは描画しない。**各ページに手で書かせない**（書き忘れが構造的に起きないようにするため）
+- [x] T023 [US2] `npm run docs:dev` で `docs/guide/agent-loop.md` を開き、S-4（回答→正誤→正解→「n問正解」／選び直せない）を確認する
 
 **チェックポイント**: ページ末尾でクイズが解ける（リロードすると消える。それは US3 の担当）
 
