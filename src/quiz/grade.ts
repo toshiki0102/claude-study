@@ -25,3 +25,11 @@ export function score(questions: Question[], answers: Answers): { correct: numbe
 export function unanswered(questions: Question[], answers: Answers): Question[] {
   return questions.filter((q) => !(questionId(q.q) in answers))
 }
+
+/**
+ * 再挑戦の対象（FR-017）: 記録が不正解の設問だけ。
+ * 全問正解なら空 → 導線を出さない（US3-4）。一度正解した設問は再出題しない。
+ */
+export function questionsToRetry(questions: Question[], answers: Answers): Question[] {
+  return questions.filter((q) => answers[questionId(q.q)] === false)
+}

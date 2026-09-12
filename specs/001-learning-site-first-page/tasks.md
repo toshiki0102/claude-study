@@ -90,13 +90,13 @@
 
 **Independent Test**: [quickstart.md](./quickstart.md) の **S-5**（残る・絞られる）、**S-6**（保存が使えなくても解ける）、**S-7**（外に送らない）。
 
-- [ ] T024 [US3] `tests/quiz/storage.test.ts` に**失敗するテスト**を書く: 空のとき→空を返す／**壊れた JSON →空を返し例外を投げない**／**`version` が違う→空を返す**／保存できる／**`store` が `null` でも例外を投げない**／**`setItem` が例外を投げるストアでも落ちない**（[data-model.md](./data-model.md) の Edge Cases）
-- [ ] T025 [US3] `src/quiz/storage.ts` を実装して T024 を緑にする（キー `claude-study:quiz:v1`、`{version:1, pages:{[quizId]:{[questionId]:boolean}}}`、**最新の正誤のみ・履歴を持たない**（FR-015））
-- [ ] T026 [US3] `tests/quiz/grade.test.ts` に `questionsToRetry` の**失敗するテスト**を追加する（不正解だけ返る／全問正解なら空配列）
-- [ ] T027 [US3] `src/quiz/grade.ts` に `questionsToRetry` を実装して T026 を緑にする
-- [ ] T028 [US3] `Quiz.vue` に復元と保存を組み込む。読み込み時に `loadAnswers()`、回答ごとに `saveAnswer()`。**`localStorage` に触れない環境では `store` に `null` を渡し、その場限りの記憶で最後まで動かす**（FR-020 / SC-005）
-- [ ] T029 [US3] `Quiz.vue` に「間違えた問題だけもう一度」を作る。対象は `questionsToRetry()` の結果。**全問正解のときは導線を出さない**（US3-4）。**一度正解した設問は再出題しない**
-- [ ] T030 [US3] `docs/guide/agent-loop.md` を開いて S-5 / S-6 / S-7 を確認する（S-6 はプライベートウィンドウで）。とくに S-7（Network タブで**リクエスト0件**）は FR-014 / SC-006 の確認そのもの
+- [x] T024 [US3] `tests/quiz/storage.test.ts` に**失敗するテスト**を書く: 空のとき→空を返す／**壊れた JSON →空を返し例外を投げない**／**`version` が違う→空を返す**／保存できる／**`store` が `null` でも例外を投げない**／**`setItem` が例外を投げるストアでも落ちない**（[data-model.md](./data-model.md) の Edge Cases）
+- [x] T025 [US3] `src/quiz/storage.ts` を実装して T024 を緑にする（キー `claude-study:quiz:v1`、`{version:1, pages:{[quizId]:{[questionId]:boolean}}}`、**最新の正誤のみ・履歴を持たない**（FR-015））
+- [x] T026 [US3] `tests/quiz/grade.test.ts` に `questionsToRetry` の**失敗するテスト**を追加する（不正解だけ返る／全問正解なら空配列）
+- [x] T027 [US3] `src/quiz/grade.ts` に `questionsToRetry` を実装して T026 を緑にする
+- [x] T028 [US3] `Quiz.vue` に復元と保存を組み込む。読み込み時に `loadAnswers()`、回答ごとに `saveAnswer()`。**`localStorage` に触れない環境では `store` に `null` を渡し、その場限りの記憶で最後まで動かす**（FR-020 / SC-005）
+- [x] T029 [US3] `Quiz.vue` に「間違えた問題だけもう一度」を作る。対象は `questionsToRetry()` の結果。**全問正解のときは導線を出さない**（US3-4）。**一度正解した設問は再出題しない**
+- [x] T030 [US3] `docs/guide/agent-loop.md` を開いて S-5 / S-6 / S-7 を確認する（S-6 はプライベートウィンドウで）。とくに S-7（Network タブで**リクエスト0件**）は FR-014 / SC-006 の確認そのもの
 
 **チェックポイント**: 3つのユーザーストーリーがすべて動く
 
