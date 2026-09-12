@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { isCorrect, score, unanswered, type Question, type Answers } from '../../src/quiz/grade'
+import { isCorrect, questionsToRetry, score, unanswered, type Question, type Answers } from '../../src/quiz/grade'
 import { questionId } from '../../src/quiz/id'
 
 // 契約: contracts/quiz-modules.md
@@ -52,5 +52,30 @@ describe('unanswered', () => {
       [questionId(q3.q)]: true,
     }
     expect(unanswered(questions, answers)).toEqual([])
+  })
+})
+
+describe('questionsToRetry', () => {
+  test('記録が不正解の設問だけを返す（FR-017）', () => {
+    const answers: Answers = {
+      [questionId(q1.q)]: true,
+      [questionId(q2.q)]: false,
+      [questionId(q3.q)]: false,
+    }
+    expect(questionsToRetry(questions, answers)).toEqual([q2, q3])
+  })
+
+  test('全問正解なら空配列 → 再挑戦の導線を出さない（US3-4）', () => {
+    const answers: Answers = {
+      [questionId(q1.q)]: true,
+      [questionId(q2.q)]: true,
+      [questionId(q3.q)]: true,
+    }
+    expect(questionsToRetry(questions, answers)).toEqual([])
+  })
+
+  test('未回答の設問は再挑戦の対象にしない（不正解の記録だけが対象）', () => {
+    const answers: Answers = { [questionId(q2.q)]: false }
+    expect(questionsToRetry(questions, answers)).toEqual([q2])
   })
 })
