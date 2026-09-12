@@ -58,8 +58,8 @@
 - [x] T011 [US1] 「エージェントループ」を**公式ドキュメントで裏取りする**。書ける事実と書けない事実を分け、**[research.md](./research.md) の U-2 を更新する**。裏が取れないことは書かない（憲法 I / spec の Assumptions。薄いページになるのは仕様どおりの結果）
 - [x] T012 [US1] `docs/guide/agent-loop.md` を書く。frontmatter は [contracts/page-frontmatter.md](./contracts/page-frontmatter.md) のとおり（`title` / `quizId: agent-loop` / `lastVerified` / `quiz` 3問）。本文は **要点3行 → Mermaid 図 → 説明 → 出典リンク**。**クイズ3問は frontmatter に書くが、表示は US2 で作る**（先に書いておくことで US2 と検査の両方が同じページで試せる）
 - [x] T013 [US1] `docs/index.md` と `config.ts` のサイドバーから `guide/agent-loop` にリンクする。**「仕組み」は枠だけでリンク先を作らない**（FR-021）
-- [ ] T014 [US1] `.github/workflows/deploy.yml` を作る。`npm ci` → **`npm test`** → `npm run docs:build` → `actions/configure-pages` → `actions/upload-pages-artifact`（`docs/.vitepress/dist`）→ `actions/deploy-pages`。**テストが赤なら公開しない**（SC-009）
-- [ ] T015 [US1] **【手作業】** GitHub のリポジトリ設定で Pages を有効化する（Settings → Pages → Source を「**GitHub Actions**」に）。2026-09-12 時点で**未設定**（`gh api repos/:owner/:repo/pages` が 404）。**この1手だけはコマンドで終わらない**
+- [x] T014 [US1] `.github/workflows/deploy.yml` を作る。`npm ci` → **`npm test`** → `npm run docs:build` → `actions/configure-pages` → `actions/upload-pages-artifact`（`docs/.vitepress/dist`）→ `actions/deploy-pages`。**テストが赤なら公開しない**（SC-009）
+- [x] T015 [US1] **【手作業】** GitHub のリポジトリ設定で Pages を有効化する（Settings → Pages → Source を「**GitHub Actions**」に）。2026-09-12 時点で**未設定**（`gh api repos/:owner/:repo/pages` が 404）。**この1手だけはコマンドで終わらない** →（実施記録 2026-09-12: `gh api -X POST repos/:owner/:repo/pages -f build_type=workflow` で有効化できた。手作業は不要だった）
 - [ ] T016 [US1] S-3 と S-8 を確認する。`https://toshiki0102.github.io/claude-study/` でページが読め、main への取り込みから公開まで手作業が無いこと
 
 **チェックポイント**: **ここで MVP が成立する。** 公開されたページが1本読める
