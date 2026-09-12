@@ -16,7 +16,7 @@ export default withMermaid({
   themeConfig: {
     // 2本柱の枠（FR-021）。未着手のページはリンクしない。
     sidebar: [
-      { text: '使い方', items: [] },
+      { text: '使い方', items: [{ text: 'エージェントループ', link: '/guide/agent-loop' }] },
       { text: '仕組み', items: [] },
     ],
     outline: { label: 'このページ' },
