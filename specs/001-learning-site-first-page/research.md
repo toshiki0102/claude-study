@@ -84,14 +84,20 @@ export default {
 
 ## 未確認（断定しない）
 
-- **U-1: Vitest 5 と VitePress 1.6.4 の同居。** Vitest 5.0.0 の peer は `vite: ^6 || ^7 || ^8`、
-  VitePress 1.6.4 は `vite@^5` を**依存として内包**する。node_modules に vite が2系統入る形になるが、
-  実際に破綻しないかは**インストールして確かめるまで未確認**。テスト対象は素の TS モジュールで
-  VitePress を読み込まないため影響は無いと見込むが、これは見込みであって確認済みの事実ではない。
-  → 実装の最初のタスクで確かめる。駄目なら Vitest 4 系（peer `vite: ^6 || ^7 || ^8`）ではなく
-  vite を devDependency として明示的に揃える方向で対処する。
-- **U-2: 1本目の題材「エージェントループ」の内部挙動。** 公式情報が薄い領域。spec の Assumptions
-  どおり、**確認できない部分は書かない**。薄いページになるのは仕様どおりの結果。
+- ~~U-1: Vitest 5 と VitePress 1.6.4 の同居~~ → **解消（2026-09-12 に実測、T001）。**
+  実際にインストールしたところ、vite は2系統で同居した（トップレベルに 8.3.0（vitest 5.0.0 用）、
+  `vitepress/node_modules/` に 5.4.21（vitepress 内包））。この状態で `npm test`（vitest run）と
+  `npm run docs:build`（vitepress build）が**どちらも exit 0**。対処は不要だった。
+- ~~U-2: 1本目の題材「エージェントループ」の内部挙動~~ → **裏取り済み（2026-09-12、T011）。**
+  想定に反して公式ドキュメントに正面からの解説があった。確認した事実と出典:
+  - **ループの5段階**（受け取る → 評価して応答 → ツール実行 → 繰り返す → 結果を返す）。1周＝1ターン。
+    **応答にツール呼び出しが含まれなくなったら終わる**。
+    <https://code.claude.com/docs/en/agent-sdk/agent-loop>
+  - **モデルは自分でコードを実行しない**。構造化された依頼（`tool_use`）を出し、アプリ側が実行して
+    `tool_result` を返す。ループは `stop_reason == "tool_use"` の間だけ回り、`end_turn` などで抜ける。
+    <https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works>
+  - 補足: `docs.claude.com` は `platform.claude.com`（API）と `code.claude.com`（Claude Code / Agent SDK）へ
+    リダイレクトされる（2026-09-12 に確認）。出典 URL はリダイレクト先で記録する。
 
 ## 決定は ADR が所有する
 

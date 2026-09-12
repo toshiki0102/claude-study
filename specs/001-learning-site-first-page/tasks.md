@@ -24,12 +24,12 @@
 
 **Purpose**: プロジェクトの初期化。**未確認を最初につぶす。**
 
-- [ ] T001 `package.json` を作り、`vitepress@^1.6.4` / `vitest@^5` / `js-yaml`（検査が frontmatter を読むのに使う）を実際にインストールして**同居が破綻しないことを確かめる**（[research.md](./research.md) U-1）。`npx vitest run`（テスト0件）と `npx vitepress build docs` が両方通ることを確認し、**結果を `research.md` の U-1 に追記して「未確認」から外す**。破綻した場合は `vite` を devDependency で明示的に揃えるなどの対処を行い、対処の内容も U-1 に書く
-- [ ] T002 `package.json` に scripts を定義する（`docs:dev` / `docs:build` / `docs:preview` / `test`）。**`npm test` 一本に集約する**（[ADR-0005](../../docs/adr/0005-page-completion-check.md)）
-- [ ] T003 [P] `tsconfig.json` を作る（`src/` と `tests/` を対象、`strict: true`）
-- [ ] T004 [P] `.gitignore` に `node_modules/` `docs/.vitepress/dist/` `docs/.vitepress/cache/` を追加する
-- [ ] T005 [P] `vitest.config.ts` を作る（環境は node、対象は `tests/**/*.test.ts`）
-- [ ] T006 `CLAUDE.md` の空の「## Commands」節に dev/build/test のコマンドを書く（コマンドの所有者は `CLAUDE.md`。SSOT 表のとおり）
+- [x] T001 `package.json` を作り、`vitepress@^1.6.4` / `vitest@^5` / `js-yaml`（検査が frontmatter を読むのに使う）を実際にインストールして**同居が破綻しないことを確かめる**（[research.md](./research.md) U-1）。`npx vitest run`（テスト0件）と `npx vitepress build docs` が両方通ることを確認し、**結果を `research.md` の U-1 に追記して「未確認」から外す**。破綻した場合は `vite` を devDependency で明示的に揃えるなどの対処を行い、対処の内容も U-1 に書く
+- [x] T002 `package.json` に scripts を定義する（`docs:dev` / `docs:build` / `docs:preview` / `test`）。**`npm test` 一本に集約する**（[ADR-0005](../../docs/adr/0005-page-completion-check.md)）
+- [x] T003 [P] `tsconfig.json` を作る（`src/` と `tests/` を対象、`strict: true`）
+- [x] T004 [P] `.gitignore` に `node_modules/` `docs/.vitepress/dist/` `docs/.vitepress/cache/` を追加する
+- [x] T005 [P] `vitest.config.ts` を作る（環境は node、対象は `tests/**/*.test.ts`）
+- [x] T006 `CLAUDE.md` の空の「## Commands」節に dev/build/test のコマンドを書く（コマンドの所有者は `CLAUDE.md`。SSOT 表のとおり）
 
 **チェックポイント**: `npm test` と `npm run docs:build` がどちらも動く（まだ中身は空）
 
@@ -39,10 +39,10 @@
 
 **Purpose**: サイトが起動し、Mermaid 図が描画される状態。**ここが終わるまでどのストーリーにも着手できない。**
 
-- [ ] T007 `docs/.vitepress/config.ts` を作る（`base: '/claude-study/'`、サイト名、2本柱「使い方」「仕組み」の枠、`srcExclude` で `adr/**` をサイトから除外）
-- [ ] T008 `docs/index.md`（目次）を作る。**2本柱の枠だけを置き、未着手のページはリンクしない**（FR-021）。`quizExempt: true` を frontmatter に置く（[contracts/page-frontmatter.md](./contracts/page-frontmatter.md)）
-- [ ] T009 `vitepress-plugin-mermaid@^2.0.17` と `mermaid@^11` を入れ、`config.ts` を `withMermaid()` で包む。**`mermaid` を 12 系にしない**（[ADR-0006](../../docs/adr/0006-mermaid-rendering.md)）
-- [ ] T010 `docs/index.md` に ` ```mermaid ` の図を一時的に置き、`npm run docs:dev` で空のサイトが立ち上がり、` ```mermaid ` フェンスが**図として描画される**ことを目で確認する（コードのまま出るなら T009 が効いていない）
+- [x] T007 `docs/.vitepress/config.ts` を作る（`base: '/claude-study/'`、サイト名、2本柱「使い方」「仕組み」の枠、`srcExclude` で `adr/**` をサイトから除外）
+- [x] T008 `docs/index.md`（目次）を作る。**2本柱の枠だけを置き、未着手のページはリンクしない**（FR-021）。`quizExempt: true` を frontmatter に置く（[contracts/page-frontmatter.md](./contracts/page-frontmatter.md)）
+- [x] T009 `vitepress-plugin-mermaid@^2.0.17` と `mermaid@^11` を入れ、`config.ts` を `withMermaid()` で包む。**`mermaid` を 12 系にしない**（[ADR-0006](../../docs/adr/0006-mermaid-rendering.md)）
+- [x] T010 `docs/index.md` に ` ```mermaid ` の図を一時的に置き、`npm run docs:dev` で空のサイトが立ち上がり、` ```mermaid ` フェンスが**図として描画される**ことを目で確認する（コードのまま出るなら T009 が効いていない）
 
 **チェックポイント**: ローカルでサイトが開き、Mermaid 図が出る
 
@@ -55,11 +55,11 @@
 **Independent Test**: [quickstart.md](./quickstart.md) の **S-3**（ページが読める）と **S-8**（main → 自動で公開）。
 クイズが動かなくても、このストーリー単体で価値が成立する。
 
-- [ ] T011 [US1] 「エージェントループ」を**公式ドキュメントで裏取りする**。書ける事実と書けない事実を分け、**[research.md](./research.md) の U-2 を更新する**。裏が取れないことは書かない（憲法 I / spec の Assumptions。薄いページになるのは仕様どおりの結果）
-- [ ] T012 [US1] `docs/guide/agent-loop.md` を書く。frontmatter は [contracts/page-frontmatter.md](./contracts/page-frontmatter.md) のとおり（`title` / `quizId: agent-loop` / `lastVerified` / `quiz` 3問）。本文は **要点3行 → Mermaid 図 → 説明 → 出典リンク**。**クイズ3問は frontmatter に書くが、表示は US2 で作る**（先に書いておくことで US2 と検査の両方が同じページで試せる）
-- [ ] T013 [US1] `docs/index.md` と `config.ts` のサイドバーから `guide/agent-loop` にリンクする。**「仕組み」は枠だけでリンク先を作らない**（FR-021）
-- [ ] T014 [US1] `.github/workflows/deploy.yml` を作る。`npm ci` → **`npm test`** → `npm run docs:build` → `actions/configure-pages` → `actions/upload-pages-artifact`（`docs/.vitepress/dist`）→ `actions/deploy-pages`。**テストが赤なら公開しない**（SC-009）
-- [ ] T015 [US1] **【手作業】** GitHub のリポジトリ設定で Pages を有効化する（Settings → Pages → Source を「**GitHub Actions**」に）。2026-09-12 時点で**未設定**（`gh api repos/:owner/:repo/pages` が 404）。**この1手だけはコマンドで終わらない**
+- [x] T011 [US1] 「エージェントループ」を**公式ドキュメントで裏取りする**。書ける事実と書けない事実を分け、**[research.md](./research.md) の U-2 を更新する**。裏が取れないことは書かない（憲法 I / spec の Assumptions。薄いページになるのは仕様どおりの結果）
+- [x] T012 [US1] `docs/guide/agent-loop.md` を書く。frontmatter は [contracts/page-frontmatter.md](./contracts/page-frontmatter.md) のとおり（`title` / `quizId: agent-loop` / `lastVerified` / `quiz` 3問）。本文は **要点3行 → Mermaid 図 → 説明 → 出典リンク**。**クイズ3問は frontmatter に書くが、表示は US2 で作る**（先に書いておくことで US2 と検査の両方が同じページで試せる）
+- [x] T013 [US1] `docs/index.md` と `config.ts` のサイドバーから `guide/agent-loop` にリンクする。**「仕組み」は枠だけでリンク先を作らない**（FR-021）
+- [x] T014 [US1] `.github/workflows/deploy.yml` を作る。`npm ci` → **`npm test`** → `npm run docs:build` → `actions/configure-pages` → `actions/upload-pages-artifact`（`docs/.vitepress/dist`）→ `actions/deploy-pages`。**テストが赤なら公開しない**（SC-009）
+- [x] T015 [US1] **【手作業】** GitHub のリポジトリ設定で Pages を有効化する（Settings → Pages → Source を「**GitHub Actions**」に）。2026-09-12 時点で**未設定**（`gh api repos/:owner/:repo/pages` が 404）。**この1手だけはコマンドで終わらない** →（実施記録 2026-09-12: `gh api -X POST repos/:owner/:repo/pages -f build_type=workflow` で有効化できた。手作業は不要だった）
 - [ ] T016 [US1] S-3 と S-8 を確認する。`https://toshiki0102.github.io/claude-study/` でページが読め、main への取り込みから公開まで手作業が無いこと
 
 **チェックポイント**: **ここで MVP が成立する。** 公開されたページが1本読める
