@@ -44,3 +44,6 @@
 | [0001](./0001-port-dev-harness-from-awsdeploy.md) | 開発ハーネス（GitHub Flow・Issues・ADR・フック）を awsdeploy から引き継ぐ | 有効 | 2026-08-29 |
 | [0002](./0002-constitution-four-principles.md) | 学習ノートサイトの憲法を「4原則」で定める | 有効 | 2026-08-29 |
 | [0003](./0003-exclude-constitution-from-adr-check.md) | ADR 検査から `constitution.md` を除外する | 有効 | 2026-08-29 |
+| [0004](./0004-quiz-data-model.md) | クイズは frontmatter に持ち、設問は問題文のハッシュ、ページは `quizId` で識別する | 有効 | 2026-09-12 |
+| [0005](./0005-page-completion-check.md) | ページの完了条件は Vitest で検査し、公開前の CI で止める（3画面は検査しない） | 有効 | 2026-09-12 |
+| [0006](./0006-mermaid-rendering.md) | Mermaid は `vitepress-plugin-mermaid` で描く（VitePress 1.x + mermaid 11） | 有効 | 2026-09-12 |
