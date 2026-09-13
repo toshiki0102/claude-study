@@ -42,6 +42,7 @@ export default withMermaid({
           { text: '拡張思考と effort', link: '/guide/thinking-effort' },
           { text: 'チェックポイント（巻き戻し）', link: '/guide/checkpointing' },
           { text: '非対話モード（claude -p）', link: '/guide/headless' },
+          { text: 'ルール（.claude/rules/）', link: '/guide/rules' },
         ],
       },
       {
