@@ -31,3 +31,4 @@ quizExempt: true
 - [圧縮の中身](./internals/compaction.md) — 要約に残るもの、消えるもの、ディスクから読み直されるもの
 - [ツール定義の形](./internals/tool-definitions.md) — name・description・input_schema の JSON。モデルは説明を読んで選び、引数を JSON で返す
 - [設定の階層](./internals/settings-layers.md) — 5段に重なり上が勝つ。管理設定は覆せず、リストは結合される
+- [サンドボックス](./internals/sandboxing.md) — Bash を OS の隔離の中で走らせる。パーミッションとは別の層

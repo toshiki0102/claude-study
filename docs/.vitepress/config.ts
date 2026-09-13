@@ -55,6 +55,7 @@ export default withMermaid({
           { text: '圧縮の中身', link: '/internals/compaction' },
           { text: 'ツール定義の形', link: '/internals/tool-definitions' },
           { text: '設定の階層', link: '/internals/settings-layers' },
+          { text: 'サンドボックス', link: '/internals/sandboxing' },
         ],
       },
     ],
