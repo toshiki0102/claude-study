@@ -22,6 +22,7 @@ quizExempt: true
 - [非対話モード（claude -p）](./guide/headless.md) — 1回走って結果を返す。答える人がいない前提で許可を先に決める
 - [ルール（.claude/rules/）](./guide/rules.md) — CLAUDE.md を話題ごとに分ける。paths を付ければ該当ファイルを読んだときだけ入る
 - [プラグイン](./guide/plugins.md) — スキル・エージェント・フック・MCP をひとまとめにして配る単位
+- [エージェントチーム](./guide/agent-teams.md) — 複数の Claude Code を対等に並走させ、メッセージで連携する。費用は人数ぶん
 
 ## 仕組み
 

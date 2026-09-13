@@ -44,6 +44,7 @@ export default withMermaid({
           { text: '非対話モード（claude -p）', link: '/guide/headless' },
           { text: 'ルール（.claude/rules/）', link: '/guide/rules' },
           { text: 'プラグイン', link: '/guide/plugins' },
+          { text: 'エージェントチーム', link: '/guide/agent-teams' },
         ],
       },
       {
