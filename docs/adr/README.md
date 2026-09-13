@@ -48,3 +48,4 @@
 | [0005](./0005-page-completion-check.md) | ページの完了条件は Vitest で検査し、公開前の CI で止める（3画面は検査しない） | 有効 | 2026-09-12 |
 | [0006](./0006-mermaid-rendering.md) | Mermaid は `vitepress-plugin-mermaid` で描く（VitePress 1.x + mermaid 11） | 有効 | 2026-09-12 |
 | [0007](./0007-pr-check-in-same-workflow.md) | PR の検査は公開ワークフローと同じ1ファイルで走らせ、Ruleset でマージを止める | 有効 | 2026-09-13 |
+| [0008](./0008-site-colors.md) | 図の色は「役割」で決めて各図の classDef に書き、ブランド色は CSS 変数、要点は `::: tip` | 有効 | 2026-09-13 |

@@ -4,6 +4,7 @@
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import Quiz from './Quiz.vue'
+import './custom.css'
 
 export default {
   extends: DefaultTheme,

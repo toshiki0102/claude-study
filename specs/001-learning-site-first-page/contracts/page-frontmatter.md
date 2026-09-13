@@ -29,12 +29,25 @@ quiz:
 
 # エージェントループ
 
-> 要点1 / 要点2 / 要点3
+::: tip 要点
+1. 要点1
+2. 要点2
+3. 要点3
+:::
 
 ```mermaid
 flowchart LR
   ...
+  %% 箱の色は「役割」で決める（サイト共通・ADR-0008）
+  %% fixed=毎回入るもの・入力 / accum=積もるもの・処理中 / result=戻るもの・結果 / edge=境界・特別な操作
+  classDef fixed fill:#e2e8f0,stroke:#475569,color:#0f172a
+  classDef accum fill:#fef3c7,stroke:#b45309,color:#451a03
+  classDef result fill:#d1fae5,stroke:#047857,color:#064e3b
+  classDef edge fill:#ffe4e6,stroke:#be123c,color:#4c0519
+  class P fixed
 ```
+
+対比の表は見出しを `<span class="keep">残る</span>` / `<span class="gone">消えうる</span>` で色分けする。
 
 本文。変化しうる記述には出典リンクを添える（[公式ドキュメント](https://docs.claude.com/)）。
 ````
@@ -57,6 +70,7 @@ flowchart LR
 |---|---|
 | 外部リンクを1本以上含む（出典・FR-007） | **する** |
 | Mermaid 図を含む（憲法 II） | **しない**（人が守る） |
+| 図の箱は役割色（fixed / accum / result / edge）で塗る | **しない**（人が守る） |
 | 要点3行・1ページ1概念・スクロール3画面以内 | **しない**（人が守る） |
 
 検査する／しないの線引きの理由は [ADR-0005](../../../docs/adr/0005-page-completion-check.md)。

@@ -28,10 +28,11 @@ quiz:
 
 # エージェントループ（agentic loop）
 
-> **要点**
-> 1. エージェント＝「モデルが判断 → アプリがツールを実行 → 結果を入力に足して戻す」の**繰り返し**
-> 2. **モデルは自分でコードを実行しない。** 「これを実行して」と構造化して頼むだけ
-> 3. ループは、**応答にツール呼び出しが含まれなくなったら**終わる
+::: tip 要点
+1. エージェント＝「モデルが判断 → アプリがツールを実行 → 結果を入力に足して戻す」の**繰り返し**
+2. **モデルは自分でコードを実行しない。** 「これを実行して」と構造化して頼むだけ
+3. ループは、**応答にツール呼び出しが含まれなくなったら**終わる
+:::
 
 ```mermaid
 flowchart LR
@@ -39,6 +40,13 @@ flowchart LR
   E -- "ツールを使いたい<br/>（tool_use）" --> T["アプリ側が<br/>ツールを実行"]
   T -- "結果（tool_result）を<br/>入力に追加" --> E
   E -- "ツール呼び出しなし" --> A[最終回答]
+  classDef fixed fill:#e2e8f0,stroke:#475569,color:#0f172a
+  classDef accum fill:#fef3c7,stroke:#b45309,color:#451a03
+  classDef result fill:#d1fae5,stroke:#047857,color:#064e3b
+  classDef edge fill:#ffe4e6,stroke:#be123c,color:#4c0519
+  class P fixed
+  class E,T accum
+  class A result
 ```
 
 ## 1周（1ターン）で起きること
