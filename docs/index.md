@@ -15,3 +15,4 @@ quizExempt: true
 ## 仕組み
 
 - [コンテキストウィンドウ](./internals/context-window.md) — 何が溜まり、上限に近づくと圧縮で何が消えるか
+- [サブエージェント](./internals/subagents.md) — 別のコンテキストで回し、親には最終メッセージだけが戻る
