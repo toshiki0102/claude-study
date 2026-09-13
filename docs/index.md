@@ -14,4 +14,4 @@ quizExempt: true
 
 ## 仕組み
 
-<!-- 同上 -->
+- [コンテキストウィンドウ](./internals/context-window.md) — 何が溜まり、上限に近づくと圧縮で何が消えるか

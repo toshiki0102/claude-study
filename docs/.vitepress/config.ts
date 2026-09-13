@@ -17,7 +17,7 @@ export default withMermaid({
     // 2本柱の枠（FR-021）。未着手のページはリンクしない。
     sidebar: [
       { text: '使い方', items: [{ text: 'エージェントループ', link: '/guide/agent-loop' }] },
-      { text: '仕組み', items: [] },
+      { text: '仕組み', items: [{ text: 'コンテキストウィンドウ', link: '/internals/context-window' }] },
     ],
     outline: { label: 'このページ' },
     docFooter: { prev: '前のページ', next: '次のページ' },
