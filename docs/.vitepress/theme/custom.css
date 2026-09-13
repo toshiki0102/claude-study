@@ -1,0 +1,37 @@
+/* サイトの配色（Issue #30 / ADR-0008）。
+   ブランド色は藍。図の役割色は各ページの classDef が持つ（ここには無い）。 */
+
+:root {
+  --vp-c-brand-1: #4338ca;
+  --vp-c-brand-2: #4f46e5;
+  --vp-c-brand-3: #6366f1;
+  --vp-c-brand-soft: rgba(99, 102, 241, 0.14);
+}
+
+.dark {
+  --vp-c-brand-1: #a5b4fc;
+  --vp-c-brand-2: #818cf8;
+  --vp-c-brand-3: #6366f1;
+  --vp-c-brand-soft: rgba(129, 140, 248, 0.16);
+}
+
+/* 要点カード（::: tip 要点）: ブランド色の帯を左に */
+.vp-doc .custom-block.tip {
+  border-left: 4px solid var(--vp-c-brand-1);
+}
+.vp-doc .custom-block.tip .custom-block-title {
+  color: var(--vp-c-brand-1);
+}
+
+/* 表: ヘッダーに淡いブランド色 */
+.vp-doc th {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+
+/* 対比の表の見出し: <span class="keep">残る</span> / <span class="gone">消えうる</span>
+   色は図の役割色「戻るもの＝緑」「境界＝薔薇」と同じ意味で使う */
+.vp-doc .keep { color: #047857; font-weight: 600; }
+.vp-doc .gone { color: #be123c; font-weight: 600; }
+.dark .vp-doc .keep { color: #6ee7b7; }
+.dark .vp-doc .gone { color: #fda4af; }

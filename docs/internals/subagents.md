@@ -28,10 +28,11 @@ quiz:
 
 # サブエージェント（subagent）
 
-> **要点**
-> 1. サブエージェント＝**別のコンテキストウィンドウで回る、もう1つのエージェントループ**。親の会話履歴・親が読んだファイル・親のシステムプロンプトは見えない
-> 2. 親から渡るのは **Agent ツールの prompt 文字列だけ**。子は自分のシステムプロンプト＋CLAUDE.md＋ツール定義で新しく始まる
-> 3. 親に戻るのは **子の最終メッセージだけ**（tool_result として）。子が途中で読んだものは親に積まれない。だから親が軽いまま
+::: tip 要点
+1. サブエージェント＝**別のコンテキストウィンドウで回る、もう1つのエージェントループ**。親の会話履歴・親が読んだファイル・親のシステムプロンプトは見えない
+2. 親から渡るのは **Agent ツールの prompt 文字列だけ**。子は自分のシステムプロンプト＋CLAUDE.md＋ツール定義で新しく始まる
+3. 親に戻るのは **子の最終メッセージだけ**（tool_result として）。子が途中で読んだものは親に積まれない。だから親が軽いまま
+:::
 
 ```mermaid
 flowchart LR
@@ -49,13 +50,20 @@ flowchart LR
   end
   A -- "prompt だけ" --> CS
   CF -- "これだけ戻る" --> R
+  classDef fixed fill:#e2e8f0,stroke:#475569,color:#0f172a
+  classDef accum fill:#fef3c7,stroke:#b45309,color:#451a03
+  classDef result fill:#d1fae5,stroke:#047857,color:#064e3b
+  classDef edge fill:#ffe4e6,stroke:#be123c,color:#4c0519
+  class A,CS fixed
+  class PH,PN,CE,CT accum
+  class R,CF result
 ```
 
 ## 何が渡り、何が渡らないか
 
 子のコンテキストは**空ではないが、親の続きでもない**。
 
-| 子が受け取る | 子が受け取らない |
+| <span class="keep">子が受け取る</span> | <span class="gone">子が受け取らない</span> |
 |---|---|
 | 自分のシステムプロンプト＋ Agent ツールの prompt | 親の会話履歴・親のツール結果 |
 | プロジェクトの CLAUDE.md（Explore / Plan は読まない） | 親のシステムプロンプト |

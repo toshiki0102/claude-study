@@ -13,6 +13,19 @@ export default withMermaid({
   // docs/adr/ は開発の意思決定記録であり、サイトの読み物ではない
   srcExclude: ['adr/**'],
 
+  // 図の線と枠のトーン（ライト用。ダークはプラグインが dark テーマを強制する）。
+  // 箱の役割色は各ページの classDef が持つ（ADR-0008）。
+  mermaid: {
+    theme: 'base',
+    themeVariables: {
+      lineColor: '#475569',
+      primaryBorderColor: '#94a3b8',
+      clusterBkg: '#f8fafc',
+      clusterBorder: '#cbd5e1',
+      fontFamily: 'inherit',
+    },
+  },
+
   themeConfig: {
     // 2本柱の枠（FR-021）。未着手のページはリンクしない。
     sidebar: [
