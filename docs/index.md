@@ -39,3 +39,4 @@ quizExempt: true
 - [設定の階層](./internals/settings-layers.md) — 5段に重なり上が勝つ。管理設定は覆せず、リストは結合される
 - [サンドボックス](./internals/sandboxing.md) — Bash を OS の隔離の中で走らせる。パーミッションとは別の層
 - [コストの内訳](./internals/costs.md) — 毎回送る全履歴で決まる。キャッシュで安く、切れると高い。減らす手
+- [Agent SDK でループを回す](./internals/agent-sdk.md) — query() 1つで同じループが自分のプログラムの中で回る。流れてくるメッセージの型

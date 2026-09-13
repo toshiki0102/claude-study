@@ -63,6 +63,7 @@ export default withMermaid({
           { text: '設定の階層', link: '/internals/settings-layers' },
           { text: 'サンドボックス', link: '/internals/sandboxing' },
           { text: 'コストの内訳', link: '/internals/costs' },
+          { text: 'Agent SDK でループを回す', link: '/internals/agent-sdk' },
         ],
       },
     ],
