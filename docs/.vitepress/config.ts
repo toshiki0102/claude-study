@@ -45,6 +45,7 @@ export default withMermaid({
           { text: 'ルール（.claude/rules/）', link: '/guide/rules' },
           { text: 'プラグイン', link: '/guide/plugins' },
           { text: 'エージェントチーム', link: '/guide/agent-teams' },
+          { text: 'スケジュールタスクと /loop', link: '/guide/scheduled-tasks' },
         ],
       },
       {
