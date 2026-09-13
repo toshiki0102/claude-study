@@ -47,6 +47,7 @@ export default withMermaid({
           { text: 'エージェントチーム', link: '/guide/agent-teams' },
           { text: 'スケジュールタスクと /loop', link: '/guide/scheduled-tasks' },
           { text: 'GitHub Actions で動かす', link: '/guide/github-actions' },
+          { text: '対話モードの操作', link: '/guide/interactive-mode' },
         ],
       },
       {
