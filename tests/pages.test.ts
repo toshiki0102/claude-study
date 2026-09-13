@@ -5,7 +5,7 @@ import { expect, test } from 'vitest'
 import { checkPage, checkSite, type PageInput, type Violation } from '../src/check/page'
 
 // 公開されるページの完了条件を機械的に検査する（FR-023 / SC-002 / SC-009 / ADR-0005）。
-// この検査は GitHub Actions で公開前に走り、赤なら公開されない（.github/workflows/deploy.yml）。
+// この検査は GitHub Actions で公開前に走り、赤なら公開されない（.github/workflows/ci.yml）。
 
 const DOCS = join(__dirname, '..', 'docs')
 
