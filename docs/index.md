@@ -40,3 +40,4 @@ quizExempt: true
 - [サンドボックス](./internals/sandboxing.md) — Bash を OS の隔離の中で走らせる。パーミッションとは別の層
 - [コストの内訳](./internals/costs.md) — 毎回送る全履歴で決まる。キャッシュで安く、切れると高い。減らす手
 - [Agent SDK でループを回す](./internals/agent-sdk.md) — query() 1つで同じループが自分のプログラムの中で回る。流れてくるメッセージの型
+- [ツール探索（ToolSearch）](./internals/tool-search.md) — 定義を外に置き、必要なものだけ探して読み込む。MCP が太らない理由
