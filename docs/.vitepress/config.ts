@@ -40,6 +40,7 @@ export default withMermaid({
           { text: 'プランモード', link: '/guide/plan-mode' },
           { text: 'ワークツリー', link: '/guide/worktrees' },
           { text: '拡張思考と effort', link: '/guide/thinking-effort' },
+          { text: 'チェックポイント（巻き戻し）', link: '/guide/checkpointing' },
         ],
       },
       {

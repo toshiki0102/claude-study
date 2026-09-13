@@ -18,6 +18,7 @@ quizExempt: true
 - [プランモード](./guide/plan-mode.md) — 読んで計画を書くまで。承認して初めて編集に移る
 - [ワークツリー](./guide/worktrees.md) — 別ブランチを別ディレクトリで並行して進める。編集がぶつからない
 - [拡張思考と effort](./guide/thinking-effort.md) — どれだけ考えるかは effort で決まる。見えなくても課金される
+- [チェックポイント（巻き戻し）](./guide/checkpointing.md) — 会話とコードをターン単位で戻す。git とは別の仕組み
 
 ## 仕組み
 
