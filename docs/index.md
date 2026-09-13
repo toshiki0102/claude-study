@@ -15,6 +15,7 @@ quizExempt: true
 - [パーミッションモード](./guide/permission-modes.md) — 聞かずにやってよい範囲はどう決まるか。ルールが先、モードは後
 - [スキル](./guide/skills.md) — 必要なときだけ読まれる手順書。CLAUDE.md との使い分け
 - [セッションと再開](./guide/sessions.md) — 会話はどこに保存され、再開で何が戻り何が戻らないか
+- [プランモード](./guide/plan-mode.md) — 読んで計画を書くまで。承認して初めて編集に移る
 
 ## 仕組み
 

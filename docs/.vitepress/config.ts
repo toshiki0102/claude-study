@@ -37,6 +37,7 @@ export default withMermaid({
           { text: 'パーミッションモード', link: '/guide/permission-modes' },
           { text: 'スキル', link: '/guide/skills' },
           { text: 'セッションと再開', link: '/guide/sessions' },
+          { text: 'プランモード', link: '/guide/plan-mode' },
         ],
       },
       {
