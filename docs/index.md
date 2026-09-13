@@ -19,6 +19,7 @@ quizExempt: true
 - [ワークツリー](./guide/worktrees.md) — 別ブランチを別ディレクトリで並行して進める。編集がぶつからない
 - [拡張思考と effort](./guide/thinking-effort.md) — どれだけ考えるかは effort で決まる。見えなくても課金される
 - [チェックポイント（巻き戻し）](./guide/checkpointing.md) — 会話とコードをターン単位で戻す。git とは別の仕組み
+- [非対話モード（claude -p）](./guide/headless.md) — 1回走って結果を返す。答える人がいない前提で許可を先に決める
 
 ## 仕組み
 
