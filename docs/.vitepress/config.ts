@@ -53,6 +53,7 @@ export default withMermaid({
           { text: 'フック', link: '/internals/hooks' },
           { text: 'MCP', link: '/internals/mcp' },
           { text: '圧縮の中身', link: '/internals/compaction' },
+          { text: 'ツール定義の形', link: '/internals/tool-definitions' },
         ],
       },
     ],

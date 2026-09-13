@@ -29,3 +29,4 @@ quizExempt: true
 - [フック](./internals/hooks.md) — ループの決まった時点でアプリが走らせる処理。文脈の外で動き、モデルの判断に関係なく走る
 - [MCP](./internals/mcp.md) — 外部のツールを「ツール定義」として差し込む規格。起動時は名前だけ、スキーマは必要なときだけ
 - [圧縮の中身](./internals/compaction.md) — 要約に残るもの、消えるもの、ディスクから読み直されるもの
+- [ツール定義の形](./internals/tool-definitions.md) — name・description・input_schema の JSON。モデルは説明を読んで選び、引数を JSON で返す
