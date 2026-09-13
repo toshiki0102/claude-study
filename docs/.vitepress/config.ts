@@ -41,6 +41,7 @@ export default withMermaid({
         items: [
           { text: 'コンテキストウィンドウ', link: '/internals/context-window' },
           { text: 'サブエージェント', link: '/internals/subagents' },
+          { text: 'プロンプトキャッシュ', link: '/internals/prompt-caching' },
         ],
       },
     ],

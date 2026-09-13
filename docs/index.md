@@ -17,3 +17,4 @@ quizExempt: true
 
 - [コンテキストウィンドウ](./internals/context-window.md) — 何が溜まり、上限に近づくと圧縮で何が消えるか
 - [サブエージェント](./internals/subagents.md) — 別のコンテキストで回し、親には最終メッセージだけが戻る
+- [プロンプトキャッシュ](./internals/prompt-caching.md) — 先頭が同じ部分は計算し直さない。何が壊すか、なぜ長いセッションが安いか
