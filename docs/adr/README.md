@@ -47,3 +47,4 @@
 | [0004](./0004-quiz-data-model.md) | クイズは frontmatter に持ち、設問は問題文のハッシュ、ページは `quizId` で識別する | 有効 | 2026-09-12 |
 | [0005](./0005-page-completion-check.md) | ページの完了条件は Vitest で検査し、公開前の CI で止める（3画面は検査しない） | 有効 | 2026-09-12 |
 | [0006](./0006-mermaid-rendering.md) | Mermaid は `vitepress-plugin-mermaid` で描く（VitePress 1.x + mermaid 11） | 有効 | 2026-09-12 |
+| [0007](./0007-pr-check-in-same-workflow.md) | PR の検査は公開ワークフローと同じ1ファイルで走らせ、Ruleset でマージを止める | 有効 | 2026-09-13 |

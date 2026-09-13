@@ -10,7 +10,7 @@ flowchart LR
     i["Issue（次に書くページ・直したい説明）"] --> br["ブランチを切る<br/>type/説明"]
     br --> work["小さくコミット"]
     work --> pr["PR を開く<br/>本文に Closes #N"]
-    pr --> ci["CI が緑"]
+    pr --> ci["CI（build）が緑"]
     ci --> sq["Squash merge"]
     sq --> main["main（常に公開できる状態）"]
 ```
@@ -40,8 +40,10 @@ flowchart LR
 2. **小さくコミットする**。メッセージは接頭辞付き（`feat:` `fix:` `ci:` `docs:` `chore:`
    `test:` `refactor:`）。
 3. **push して PR を開く**。対応する Issue があれば本文に `Closes #N`。
+   PR を開くと CI の `build` ジョブ（`npm test` → `npm run docs:build`）が走る。
 4. **セルフレビュー**（差分を必ず読み返す）。
-5. **Squash merge** で `main` に取り込む。`main` は「1変更 = 1コミット」の直線履歴。
+5. **Squash merge** で `main` に取り込む。`build` が赤いあいだはマージできない（Ruleset）。
+   `main` は「1変更 = 1コミット」の直線履歴。
 6. **ブランチを削除**する（`gh pr merge <N> --squash --delete-branch`）。
 
 ## ブランチ命名規則
@@ -75,8 +77,9 @@ npm install                           # 依存（VitePress 導入後）
 | **pre-commit** | `git commit` 時 | 秘密情報・個人情報の混入（`.githooks/checks/secret-pii-scan.sh`） |
 | **pre-push** | `git push` 時 | `main` への直接 push |
 | **pre-push** | `git push` 時 | `.specify/` · `.claude/skills/` を変えたのに ADR が無い状態 |
-| **CI** | PR 時 | ビルドが壊れたままのマージ |
-| **ブランチ保護** | `main` への push | サーバー側での強制（public リポジトリなので無料で使える） |
+| **CI** | PR 時 | 検査（`npm test`）かビルドが赤いままのマージ（`.github/workflows/ci.yml` の `build`） |
+| **Ruleset** | `main` への push・マージ | 直接 push と、`build` が緑でない PR のマージ（サーバー側で強制） |
 
-**このリポジトリは public なので、GitHub のブランチ保護（Ruleset）が無料で使える。**
-awsdeploy では Private+Free のため使えず、クライアント側フックで代替していた。
+**このリポジトリは public なので、GitHub の Ruleset が無料で使える。** awsdeploy では
+Private+Free のため使えず、クライアント側フックで代替していた。CI と Ruleset を分けた理由は
+[ADR-0007](./docs/adr/0007-pr-check-in-same-workflow.md)。
