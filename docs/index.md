@@ -15,6 +15,11 @@ quizExempt: true
 - [パーミッションモード](./guide/permission-modes.md) — 聞かずにやってよい範囲はどう決まるか。ルールが先、モードは後
 - [スキル](./guide/skills.md) — 必要なときだけ読まれる手順書。CLAUDE.md との使い分け
 - [セッションと再開](./guide/sessions.md) — 会話はどこに保存され、再開で何が戻り何が戻らないか
+- [プランモード](./guide/plan-mode.md) — 読んで計画を書くまで。承認して初めて編集に移る
+- [ワークツリー](./guide/worktrees.md) — 別ブランチを別ディレクトリで並行して進める。編集がぶつからない
+- [拡張思考と effort](./guide/thinking-effort.md) — どれだけ考えるかは effort で決まる。見えなくても課金される
+- [チェックポイント（巻き戻し）](./guide/checkpointing.md) — 会話とコードをターン単位で戻す。git とは別の仕組み
+- [非対話モード（claude -p）](./guide/headless.md) — 1回走って結果を返す。答える人がいない前提で許可を先に決める
 
 ## 仕組み
 
@@ -23,3 +28,8 @@ quizExempt: true
 - [プロンプトキャッシュ](./internals/prompt-caching.md) — 先頭が同じ部分は計算し直さない。何が壊すか、なぜ長いセッションが安いか
 - [フック](./internals/hooks.md) — ループの決まった時点でアプリが走らせる処理。文脈の外で動き、モデルの判断に関係なく走る
 - [MCP](./internals/mcp.md) — 外部のツールを「ツール定義」として差し込む規格。起動時は名前だけ、スキーマは必要なときだけ
+- [圧縮の中身](./internals/compaction.md) — 要約に残るもの、消えるもの、ディスクから読み直されるもの
+- [ツール定義の形](./internals/tool-definitions.md) — name・description・input_schema の JSON。モデルは説明を読んで選び、引数を JSON で返す
+- [設定の階層](./internals/settings-layers.md) — 5段に重なり上が勝つ。管理設定は覆せず、リストは結合される
+- [サンドボックス](./internals/sandboxing.md) — Bash を OS の隔離の中で走らせる。パーミッションとは別の層
+- [コストの内訳](./internals/costs.md) — 毎回送る全履歴で決まる。キャッシュで安く、切れると高い。減らす手
