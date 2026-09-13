@@ -66,6 +66,7 @@ export default withMermaid({
           { text: 'Agent SDK でループを回す', link: '/internals/agent-sdk' },
           { text: 'ツール探索（ToolSearch）', link: '/internals/tool-search' },
           { text: 'auto モードの分類器', link: '/internals/auto-mode-classifier' },
+          { text: 'ワークスペースの信頼', link: '/internals/workspace-trust' },
         ],
       },
     ],
