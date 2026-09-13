@@ -36,6 +36,7 @@ export default withMermaid({
           { text: 'CLAUDE.md とメモリ', link: '/guide/claude-md-memory' },
           { text: 'パーミッションモード', link: '/guide/permission-modes' },
           { text: 'スキル', link: '/guide/skills' },
+          { text: 'セッションと再開', link: '/guide/sessions' },
         ],
       },
       {
