@@ -43,6 +43,7 @@ export default withMermaid({
           { text: 'コンテキストウィンドウ', link: '/internals/context-window' },
           { text: 'サブエージェント', link: '/internals/subagents' },
           { text: 'プロンプトキャッシュ', link: '/internals/prompt-caching' },
+          { text: 'フック', link: '/internals/hooks' },
         ],
       },
     ],
