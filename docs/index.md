@@ -32,3 +32,4 @@ quizExempt: true
 - [ツール定義の形](./internals/tool-definitions.md) — name・description・input_schema の JSON。モデルは説明を読んで選び、引数を JSON で返す
 - [設定の階層](./internals/settings-layers.md) — 5段に重なり上が勝つ。管理設定は覆せず、リストは結合される
 - [サンドボックス](./internals/sandboxing.md) — Bash を OS の隔離の中で走らせる。パーミッションとは別の層
+- [コストの内訳](./internals/costs.md) — 毎回送る全履歴で決まる。キャッシュで安く、切れると高い。減らす手
