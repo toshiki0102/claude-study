@@ -45,6 +45,7 @@ export default withMermaid({
           { text: 'サブエージェント', link: '/internals/subagents' },
           { text: 'プロンプトキャッシュ', link: '/internals/prompt-caching' },
           { text: 'フック', link: '/internals/hooks' },
+          { text: 'MCP', link: '/internals/mcp' },
         ],
       },
     ],
