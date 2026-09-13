@@ -17,6 +17,7 @@ quizExempt: true
 - [セッションと再開](./guide/sessions.md) — 会話はどこに保存され、再開で何が戻り何が戻らないか
 - [プランモード](./guide/plan-mode.md) — 読んで計画を書くまで。承認して初めて編集に移る
 - [ワークツリー](./guide/worktrees.md) — 別ブランチを別ディレクトリで並行して進める。編集がぶつからない
+- [拡張思考と effort](./guide/thinking-effort.md) — どれだけ考えるかは effort で決まる。見えなくても課金される
 
 ## 仕組み
 

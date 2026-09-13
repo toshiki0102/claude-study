@@ -39,6 +39,7 @@ export default withMermaid({
           { text: 'セッションと再開', link: '/guide/sessions' },
           { text: 'プランモード', link: '/guide/plan-mode' },
           { text: 'ワークツリー', link: '/guide/worktrees' },
+          { text: '拡張思考と effort', link: '/guide/thinking-effort' },
         ],
       },
       {
