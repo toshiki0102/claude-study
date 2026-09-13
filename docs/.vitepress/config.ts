@@ -34,6 +34,7 @@ export default withMermaid({
         items: [
           { text: 'エージェントループ', link: '/guide/agent-loop' },
           { text: 'CLAUDE.md とメモリ', link: '/guide/claude-md-memory' },
+          { text: 'パーミッションモード', link: '/guide/permission-modes' },
         ],
       },
       {
