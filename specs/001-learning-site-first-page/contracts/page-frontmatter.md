@@ -64,6 +64,9 @@ flowchart LR
 | `quiz[].choices` | string[] | **ちょうど4件** / 各要素が空でない | `2問目の choices が 3 件です（4件必要）` |
 | `quiz[].answer` | number | 整数 / `0 <= answer <= 3` | `3問目の answer が 4 です（0〜3）` |
 
+**`q` や `choices` にコロン（`key: value` の形）を含めるときは引用符で囲む。** 囲まないと YAML が
+連想配列として読み、`choice-empty` で止まる（例: `- "disable-model-invocation: true（自分だけが呼べる）"`）。
+
 ## 本文側の規則
 
 | 規則 | 検査 |

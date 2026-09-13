@@ -13,6 +13,7 @@ quizExempt: true
 - [エージェントループ](./guide/agent-loop.md) — モデルが判断し、ツールを実行し、結果を戻して繰り返す
 - [CLAUDE.md とメモリ](./guide/claude-md-memory.md) — 何をどこに書けば次のセッションと圧縮のあとも残るか
 - [パーミッションモード](./guide/permission-modes.md) — 聞かずにやってよい範囲はどう決まるか。ルールが先、モードは後
+- [スキル](./guide/skills.md) — 必要なときだけ読まれる手順書。CLAUDE.md との使い分け
 
 ## 仕組み
 
