@@ -41,3 +41,4 @@ quizExempt: true
 - [コストの内訳](./internals/costs.md) — 毎回送る全履歴で決まる。キャッシュで安く、切れると高い。減らす手
 - [Agent SDK でループを回す](./internals/agent-sdk.md) — query() 1つで同じループが自分のプログラムの中で回る。流れてくるメッセージの型
 - [ツール探索（ToolSearch）](./internals/tool-search.md) — 定義を外に置き、必要なものだけ探して読み込む。MCP が太らない理由
+- [auto モードの分類器](./internals/auto-mode-classifier.md) — 別のモデルが「依頼の範囲か・環境の内側か」で審査する。環境は文章で教える
