@@ -43,6 +43,7 @@ export default withMermaid({
           { text: 'チェックポイント（巻き戻し）', link: '/guide/checkpointing' },
           { text: '非対話モード（claude -p）', link: '/guide/headless' },
           { text: 'ルール（.claude/rules/）', link: '/guide/rules' },
+          { text: 'プラグイン', link: '/guide/plugins' },
         ],
       },
       {
