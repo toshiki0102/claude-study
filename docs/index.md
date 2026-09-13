@@ -11,6 +11,7 @@ quizExempt: true
 ## 使い方
 
 - [エージェントループ](./guide/agent-loop.md) — モデルが判断し、ツールを実行し、結果を戻して繰り返す
+- [CLAUDE.md とメモリ](./guide/claude-md-memory.md) — 何をどこに書けば次のセッションと圧縮のあとも残るか
 
 ## 仕組み
 
